@@ -1,9 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Tutor } from '../../models/tutor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-tutor-dialog',
@@ -16,10 +13,9 @@ export class TutorDialogComponent {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<TutorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Tutor
+    @Inject(MAT_DIALOG_DATA) public data: TutorData
   ) {
     this.tutorForm = this.fb.group({
-      id: [data?.id ?? 0],
       name: [data?.name ?? '', Validators.required],
       phone: [data?.phone ?? ''],
       email: [data?.email ?? '', [Validators.required, Validators.email]]
@@ -28,7 +24,7 @@ export class TutorDialogComponent {
 
   onSave(): void {
     if (this.tutorForm.valid) {
-      this.dialogRef.close(this.tutorForm.value as Tutor);
+      this.dialogRef.close(this.tutorForm.value as TutorData);
     }
   }
 

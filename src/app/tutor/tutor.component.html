@@ -1,21 +1,20 @@
 <h2>My Heroes</h2>
 
 <div>
-  <!-- <label for="tutor-name">Nome do tutor: </label>
-  <input id="tutor-name" #tutorName />
-  <label for=""></label> -->
-
-  <!-- (click) passes input value to add() and then clears the input -->
   <button type="button" class="add-button" (click)="add()">
     Adicionar Tutor
   </button>
 </div>
 <ul class="heroes">
   <li *ngFor="let tutor of tutors">
-    <a routerLink="/detail/{{tutor.id}}">
-      <span class="badge">{{tutor.id}}</span> {{tutor.name}}
-    </a>
-    <button type="button" class="delete" title="delete tutor"
-      (click)="delete(tutor)">x</button>
+    
+    <span class="badge">{{tutor.id}}</span> {{tutor.name}}
+    
+    <button type="button" class="delete" title="deletar tutor"
+      (click)="delete(tutor)">x
+    </button>
+    <button type="button" class="delete" title="atualizar tutor"
+      (click)="update(tutor)">x
+    </button>
   </li>
 </ul> 

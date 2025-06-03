@@ -38,29 +38,16 @@ export class TutorComponent implements OnInit {
       width: '300px'
     })
 
-    dialogRef.afterClosed().subscribe(
-      tutor => {
-        console.log(tutor);
-        this.newTutor = tutor;
-
-        
-      }
-    )
+    dialogRef.afterClosed().subscribe(tutor => this.tutorService.addTutor(tutor).subscribe())
   }
 
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.tutorService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
+  update(tutor: Tutor): void {
+    this.tutorService.updateTutor(tutor).subscribe();
+  }
 
   delete(tutor: Tutor): void {
     this.tutorService.deleteTutor(tutor.id).subscribe( r => {
       this.listTutors()
     });
   }
-
 }
