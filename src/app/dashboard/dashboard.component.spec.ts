@@ -3,7 +3,7 @@ import {RouterModule} from '@angular/router';
 import {of} from 'rxjs';
 
 import {HeroSearchComponent} from '../hero-search/hero-search.component';
-import {HeroService} from '../hero.service';
+import {TutorService} from '../tutor.service';
 import {HEROES} from '../mock-heroes';
 
 import {DashboardComponent} from './dashboard.component';
@@ -22,7 +22,7 @@ describe('DashboardComponent', () => {
           declarations: [DashboardComponent, HeroSearchComponent],
           imports: [RouterModule.forRoot([])],
           providers: [
-            {provide: HeroService, useValue: heroService},
+            {provide: TutorService, useValue: heroService},
           ]
         })
         .compileComponents();
