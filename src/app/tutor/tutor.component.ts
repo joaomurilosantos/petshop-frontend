@@ -52,7 +52,15 @@ export class TutorComponent implements OnInit {
       width: '300px'
     })
 
-    dialogRef.afterClosed().subscribe(tutor => this.tutorService.updateTutor(tutor).subscribe());
+    dialogRef.afterClosed().subscribe(data => {
+      let updatedTutor = {
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        id: tutor.id
+      }
+      this.tutorService.updateTutor(updatedTutor).subscribe(_ => this.listTutors())
+    });
   }
 
   delete(tutor: Tutor): void {

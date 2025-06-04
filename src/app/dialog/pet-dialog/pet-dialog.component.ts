@@ -12,7 +12,7 @@ import { Tutor } from '../../models/tutor';
 export class PetDialogComponent implements OnInit {
   petForm: FormGroup;
   tutors: Tutor[] = [];
-  selectedOption = '';
+  selectedOption!: number;
   
   constructor(
     private fb: FormBuilder,
@@ -30,7 +30,7 @@ export class PetDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.listTutors();
   }
 
   listTutors(): void {

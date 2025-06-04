@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Tutor } from '../models/tutor';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -11,7 +10,7 @@ import {
 } from '@angular/material/dialog';
 import { PetService } from '../pet.service';
 import { Pet } from '../models/pet';
-import { PetDialogComponent } from '../dialog/pet-dialog/pet-dialog.component';
+import { PetData, PetDialogComponent } from '../dialog/pet-dialog/pet-dialog.component';
 
 @Component({
   selector: 'app-pets',
@@ -38,26 +37,38 @@ export class PetComponent implements OnInit {
       width: '300px'
     })
 
-    dialogRef.afterClosed().subscribe(tutor => this.petService.addPet(tutor).subscribe( _ => {
+    dialogRef.afterClosed().subscribe(pet => this.petService.addPet(pet).subscribe( _ => {
       this.listPets()
     }));
   }
 
-  update(tutor: Tutor): void {
+  update(pet: Pet): void {
     const dialogRef = this.dialog.open(PetDialogComponent, {
       data: {
-        name: tutor.name,
-        phone: tutor.phone,
-        email: tutor.email
+        name: pet.name,
+        species: pet.species,
+        breed: pet.breed,
+        tutorId: pet.tutorId,
+        age: pet.age
       },
       width: '300px'
     })
 
-    dialogRef.afterClosed().subscribe(tutor => this.petService.updatePet(tutor).subscribe());
+    dialogRef.afterClosed().subscribe(data => {
+      let updatedPet: Pet = {
+        name: data.name,
+        species: data.species,
+        breed: data.breed,
+        tutorId: data.tutorId,
+        age: data.age,
+        id: pet.id
+      }
+      this.petService.updatePet(updatedPet).subscribe(_ => this.listPets());
+    });
   }
 
-  delete(tutor: Tutor): void {
-    this.petService.deletePet(tutor.id).subscribe( r => {
+  delete(pet: Pet): void {
+    this.petService.deletePet(pet.id).subscribe( r => {
       this.listPets()
     });
   }

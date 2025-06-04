@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { PetsComponent } from './dashboard/dashboard.component';
 import { TutorComponent } from './tutor/tutor.component';
 import { MessagesComponent } from './messages/messages.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -14,6 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TutorDialogComponent } from './dialog/tutor-dialog/tutor-dialog.component';
 import { PetDialogComponent } from './dialog/pet-dialog/pet-dialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import { PetComponent } from './pet/pet.component';
 
 @NgModule({
   imports: [
@@ -23,15 +24,16 @@ import { PetDialogComponent } from './dialog/pet-dialog/pet-dialog.component';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    MatSelectModule    
   ],
   declarations: [
     AppComponent,
-    PetsComponent,
     TutorComponent,
     MessagesComponent,
     TutorDialogComponent,
-    PetDialogComponent
+    PetDialogComponent,
+    PetComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

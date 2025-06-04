@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MessageService } from './message.service';
 import { TutorData } from './dialog/tutor-dialog/tutor-dialog.component';
 import { Pet } from './models/pet';
+import { PetData } from './dialog/pet-dialog/pet-dialog.component';
 
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +24,7 @@ export class PetService {
     return this.http.get<Pet[]>(this.petUrl, this.httpOptions);
   }
 
-  addPet(data: TutorData): Observable<Pet> {
+  addPet(data: PetData): Observable<Pet> {
     return this.http.post<Pet>(this.petUrl, data);
   }
 
