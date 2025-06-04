@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TutorDialogComponent } from './dialog/tutor-dialog/tutor-dialog.component';
+import { PetDialogComponent } from './dialog/pet-dialog/pet-dialog.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { TutorDialogComponent } from './dialog/tutor-dialog/tutor-dialog.compone
     PetsComponent,
     TutorComponent,
     MessagesComponent,
-    TutorDialogComponent
+    TutorDialogComponent,
+    PetDialogComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

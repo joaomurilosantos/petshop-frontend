@@ -19,7 +19,6 @@ import { TutorDialogComponent } from '../dialog/tutor-dialog/tutor-dialog.compon
 })
 export class TutorComponent implements OnInit {
   tutors: Tutor[] = [];
-  newTutor: Tutor | undefined;
 
   constructor(private tutorService: TutorService, private dialog: MatDialog) { }
 

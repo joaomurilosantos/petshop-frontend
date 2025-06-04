@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Tutor' : 'New Tutor' }}</h2>
+
+<form [formGroup]="petForm" (ngSubmit)="onSave()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Espécie</mat-label>
+    <input matInput formControlName="species">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Raça</mat-label>
+    <input matInput formControlName="breed">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tutor</mat-label>
+    <input matInput formControlName="tutorId">
+  </mat-form-field>
+
+  <select [(ngModel)]="selectedOption">
+    <option *ngFor="let tutor of tutors" [value]="tutor.id">
+      {{tutor.name}}
+    </option>
+  </select>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Idade</mat-label>
+    <input matInput formControlName="age">
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>
+
