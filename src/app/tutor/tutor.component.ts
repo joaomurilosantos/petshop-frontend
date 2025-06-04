@@ -13,7 +13,7 @@ import {
 import { TutorDialogComponent } from '../dialog/tutor-dialog/tutor-dialog.component';
 
 @Component({
-  selector: 'app-heroes',
+  selector: 'app-tutors',
   templateUrl: './tutor.component.html',
   styleUrls: ['./tutor.component.css']
 })
@@ -38,11 +38,22 @@ export class TutorComponent implements OnInit {
       width: '300px'
     })
 
-    dialogRef.afterClosed().subscribe(tutor => this.tutorService.addTutor(tutor).subscribe())
+    dialogRef.afterClosed().subscribe(tutor => this.tutorService.addTutor(tutor).subscribe( _ => {
+      this.listTutors()
+    }));
   }
 
   update(tutor: Tutor): void {
-    this.tutorService.updateTutor(tutor).subscribe();
+    const dialogRef = this.dialog.open(TutorDialogComponent, {
+      data: {
+        name: tutor.name,
+        phone: tutor.phone,
+        email: tutor.email
+      },
+      width: '300px'
+    })
+
+    dialogRef.afterClosed().subscribe(tutor => this.tutorService.updateTutor(tutor).subscribe());
   }
 
   delete(tutor: Tutor): void {

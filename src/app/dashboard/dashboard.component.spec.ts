@@ -6,11 +6,11 @@ import {HeroSearchComponent} from '../hero-search/hero-search.component';
 import {TutorService} from '../tutor.service';
 import {HEROES} from '../mock-heroes';
 
-import {DashboardComponent} from './dashboard.component';
+import {PetsComponent} from './dashboard.component';
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+  let component: PetsComponent;
+  let fixture: ComponentFixture<PetsComponent>;
   let heroService;
   let getHeroesSpy: jasmine.Spy;
 
@@ -19,7 +19,7 @@ describe('DashboardComponent', () => {
     getHeroesSpy = heroService.getHeroes.and.returnValue(of(HEROES));
     TestBed
         .configureTestingModule({
-          declarations: [DashboardComponent, HeroSearchComponent],
+          declarations: [PetsComponent, HeroSearchComponent],
           imports: [RouterModule.forRoot([])],
           providers: [
             {provide: TutorService, useValue: heroService},
@@ -27,7 +27,7 @@ describe('DashboardComponent', () => {
         })
         .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(PetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

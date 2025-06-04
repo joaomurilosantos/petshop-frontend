@@ -1,4 +1,4 @@
-<h2>My Heroes</h2>
+<h2>Tutores</h2>
 
 <div>
   <button type="button" class="add-button" (click)="add()">
@@ -6,15 +6,18 @@
   </button>
 </div>
 <ul class="heroes">
-  <li *ngFor="let tutor of tutors">
-    
-    <span class="badge">{{tutor.id}}</span> {{tutor.name}}
-    
-    <button type="button" class="delete" title="deletar tutor"
-      (click)="delete(tutor)">x
-    </button>
-    <button type="button" class="delete" title="atualizar tutor"
-      (click)="update(tutor)">x
-    </button>
+  <li *ngFor="let tutor of tutors" class="tutor-item">
+    <span class="badge">{{ tutor.id }}</span> {{ tutor.name }}
+
+    <span class="button-group">
+      <button type="button" class="update" title="Atualizar Tutor"
+        (click)="update(tutor)">Atualizar
+      </button>
+
+      <button type="button" class="delete" title="Deletar Tutor"
+        (click)="delete(tutor)">Deletar
+      </button>
+    </span>
   </li>
-</ul> 
+</ul>
+
