@@ -16,9 +16,9 @@ export class TutorDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: TutorData
   ) {
     this.tutorForm = this.fb.group({
-      name: [data?.name ?? '', Validators.required],
-      phone: [data?.phone ?? ''],
-      email: [data?.email ?? '', [Validators.required, Validators.email]]
+      name: [data?.name ?? '', Validators.maxLength(50), Validators.required],
+      phone: [data?.phone ?? '', Validators.maxLength(11)],
+      email: [data?.email ?? '', [Validators.required, Validators.email, Validators.maxLength(80)]]
     });
   }
 
