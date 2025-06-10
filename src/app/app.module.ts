@@ -15,6 +15,10 @@ import { TutorDialogComponent } from './dialog/tutor-dialog/tutor-dialog.compone
 import { PetDialogComponent } from './dialog/pet-dialog/pet-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import { PetComponent } from './pet/pet.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentDialogComponent } from './dialog/appointment-dialog/appointment-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -25,7 +29,9 @@ import { PetComponent } from './pet/pet.component';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatSelectModule    
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     AppComponent,
@@ -33,7 +39,9 @@ import { PetComponent } from './pet/pet.component';
     MessagesComponent,
     TutorDialogComponent,
     PetDialogComponent,
-    PetComponent
+    PetComponent,
+    AppointmentComponent,
+    AppointmentDialogComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

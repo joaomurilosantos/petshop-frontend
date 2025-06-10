@@ -35,12 +35,9 @@ export class TutorService {
     return this.http.put<void>(this.tutorUrl, data);
   }
 
-  /** DELETE: delete the hero from the server */
   deleteTutor(id: number) {
     const url = `${this.tutorUrl}/${id}`;
 
     return this.http.delete<void>(url, this.httpOptions) 
   }
-
-  
 }
