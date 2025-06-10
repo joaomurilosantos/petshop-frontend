@@ -1,7 +1,32 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/pets">Pets</a>
-  <a routerLink="/tutors">Tutores</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div class="wrapper">
+  <div class="app-container">
+    <div class="header">
+      <div class="logo">🐾 Pet shop</div>
+      <p>Olá &lt;Usuário&gt;</p>
+      <p>O que deseja fazer hoje?</p>
+    </div>
+
+    <div class="switch-buttons">
+      <button (click)="pagina = 'tutores'" [class.active]="pagina === 'tutores'">Tutores</button>
+      <button (click)="pagina = 'pets'" [class.active]="pagina === 'pets'">Pets</button>
+    </div>
+
+    <div class="content">
+      <div *ngIf="pagina === 'tutores'" class="card">
+        <h3>Tutores</h3>
+        <ul>
+          <li *ngFor="let tutor of tutors">{{ tutor.name }}</li>
+        </ul>
+        <button class="add-button">Adicionar tutor</button>
+      </div>
+
+      <div *ngIf="pagina === 'pets'" class="card">
+        <h3>Pets</h3>
+        <ul>
+          <li *ngFor="let pet of pets">{{ pet.name }}</li>
+        </ul>
+        <button class="add-button">Adicionar pet</button>
+      </div>
+    </div>
+  </div>
+</div>

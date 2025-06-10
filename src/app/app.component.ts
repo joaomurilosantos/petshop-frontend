@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PetShop';
+  pagina: 'pets' | 'tutores' = 'tutores';
+
+  pets = [
+    { name: 'Bolinha' },
+    { name: 'Zeca' }
+  ];
+  
+  tutors = [
+    { name: 'João Bobão' },
+    { name: 'Jp viado' }
+  ];
 }

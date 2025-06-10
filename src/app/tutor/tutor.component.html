@@ -1,23 +1,11 @@
-<h2>Tutores</h2>
-
-<div>
-  <button type="button" class="add-button" (click)="add()">
-    Adicionar Tutor
-  </button>
+<div class="app-container">
+  <div class="card">
+    <h3>Tutores</h3>
+    <ul>
+      <li *ngFor="let tutor of tutors">
+        {{ tutor.name }}
+      </li>
+    </ul>
+    <button (click)="add()">Adicionar tutor</button>
+  </div>
 </div>
-<ul class="heroes">
-  <li *ngFor="let tutor of tutors" class="tutor-item">
-    <span class="badge">{{ tutor.id }}</span> {{ tutor.name }}
-
-    <span class="button-group">
-      <button type="button" class="update" title="Atualizar Tutor"
-        (click)="update(tutor)">Atualizar
-      </button>
-
-      <button type="button" class="delete" title="Deletar Tutor"
-        (click)="delete(tutor)">Deletar
-      </button>
-    </span>
-  </li>
-</ul>
-
