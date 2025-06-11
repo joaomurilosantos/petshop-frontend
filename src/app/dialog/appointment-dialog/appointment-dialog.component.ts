@@ -20,7 +20,7 @@ export class AppointmentDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: AppointmentData
   ) {
     this.AppointmentForm = this.fb.group({
-      petId: [data?.petId ?? '', Validators.maxLength(50), Validators.required],
+      petId: [data?.petId ?? '', [Validators.maxLength(50), Validators.required]],
       consulta: [data?.consulta ?? '', Validators.maxLength(11)]
     });
   }

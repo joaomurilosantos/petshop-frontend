@@ -21,7 +21,7 @@ export class PetDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: PetData
   ) {
     this.petForm = this.fb.group({
-      name: [data?.name ?? '', Validators.maxLength(100), Validators.required],
+      name: [data?.name ?? '', [Validators.maxLength(100), Validators.required]],
       species: [data?.species ?? '', Validators.maxLength(20)],
       breed: [data?.breed ?? '', Validators.maxLength(20)],
       tutorId: [data?.tutorId ?? '', Validators.required],
