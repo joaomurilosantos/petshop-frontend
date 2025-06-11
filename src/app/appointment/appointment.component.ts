@@ -50,7 +50,7 @@ export class AppointmentComponent implements OnInit {
     const dialogRef = this.dialog.open(AppointmentDialogComponent, {
       data: {
         petId: appointment.petId,
-        consulta: appointment.consulta
+        consultDateTime: appointment.consultDateTime
       },
       width: '300px'
     })
@@ -58,7 +58,7 @@ export class AppointmentComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       let updatedAppointment = {
         petId: data.petId,
-        consulta: data.consulta,
+        consultDateTime: data.consultDateTime,
         id: appointment.id
       }
       

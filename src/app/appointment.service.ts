@@ -31,10 +31,10 @@ export class AppointmentService {
 
   addAppointment(data: AppointmentData): Observable<Appointment> {
     const dto : AppointmentDto = {
-      petId : data.petId,
-      consulta : data.consulta.toISOString()
+      petId: data.petId,
+      consultDateTime: data.consultDateTime.toISOString().slice(0, 19),
     }
-    return this.http.post<Appointment>(this.appointmentUrl, dto);
+    return this.http.post<Appointment>(this.appointmentUrl, data);
   }
 
   updateAppointment(data: Appointment) {    
@@ -49,6 +49,7 @@ export class AppointmentService {
 }
 
 export interface AppointmentDto {
+    id?: number,
     petId: number,
-    consulta: string
+    consultDateTime: string
 }

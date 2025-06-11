@@ -6,12 +6,20 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Espécie</mat-label>
-    <input matInput formControlName="species">
+    <mat-select formControlName="speciesId">
+      @for (s of species; track s) {
+        <mat-option [value]="s.id">{{s.speciesName}}</mat-option>
+      }
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Raça</mat-label>
-    <input matInput formControlName="breed">
+    <mat-select formControlName="breedId">
+      @for (breed of breeds; track breed) {
+        <mat-option [value]="breed.id">{{breed.breedName}}</mat-option>
+      }
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field>

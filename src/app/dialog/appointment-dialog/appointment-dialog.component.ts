@@ -21,7 +21,7 @@ export class AppointmentDialogComponent implements OnInit {
   ) {
     this.AppointmentForm = this.fb.group({
       petId: [data?.petId ?? '', [Validators.maxLength(50), Validators.required]],
-      consulta: [data?.consulta ?? '', Validators.maxLength(11)]
+      consultDateTime: [data?.consultDateTime ?? '', Validators.maxLength(11)]
     });
   }
 
@@ -47,5 +47,5 @@ export class AppointmentDialogComponent implements OnInit {
 
 export interface AppointmentData {
     petId: number,
-    consulta: Date
+    consultDateTime: Date
 }

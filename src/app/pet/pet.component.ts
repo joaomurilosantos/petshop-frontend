@@ -9,7 +9,7 @@ import {
   MatDialogClose,
 } from '@angular/material/dialog';
 import { PetService } from '../pet.service';
-import { Pet } from '../models/pet';
+import { Breed, Pet, Species } from '../models/pet';
 import { PetData, PetDialogComponent } from '../dialog/pet-dialog/pet-dialog.component';
 
 @Component({
@@ -46,8 +46,8 @@ export class PetComponent implements OnInit {
     const dialogRef = this.dialog.open(PetDialogComponent, {
       data: {
         name: pet.name,
-        species: pet.species,
-        breed: pet.breed,
+        speciesId: pet.speciesId,
+        breedId: pet.breedId,
         tutorId: pet.tutorId,
         age: pet.age
       },
@@ -57,8 +57,8 @@ export class PetComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       let updatedPet: Pet = {
         name: data.name,
-        species: data.species,
-        breed: data.breed,
+        speciesId: data.speciesId,
+        breedId: data.breedId,
         tutorId: data.tutorId,
         age: data.age,
         id: pet.id

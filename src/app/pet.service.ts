@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MessageService } from './message.service';
 import { TutorData } from './dialog/tutor-dialog/tutor-dialog.component';
-import { Pet } from './models/pet';
+import { Breed, Pet, Species } from './models/pet';
 import { PetData } from './dialog/pet-dialog/pet-dialog.component';
 
 
 @Injectable({ providedIn: 'root' })
 export class PetService {
-
   private petUrl = 'https://localhost:7269/api/pet';  // URL to web api
 
   httpOptions = {
@@ -22,6 +21,14 @@ export class PetService {
 
   listPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.petUrl, this.httpOptions);
+  }
+
+  listBreeds() {
+    return this.http.get<Breed[]>(this.petUrl + `/breed`, this.httpOptions);
+  }
+
+  listSpecies() {
+    return this.http.get<Species[]>(this.petUrl + `/species`, this.httpOptions);
   }
 
   addPet(data: PetData): Observable<Pet> {
