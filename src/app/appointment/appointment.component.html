@@ -1,23 +1,27 @@
-<h2>Agendamentos</h2>
-
-<div>
-  <button type="button" class="add-button" (click)="add()">
-    Adicionar Agendamento
-  </button>
+<div class="appointment-container">
+  <div class="card">
+    <h3>Agendamentos</h3>
+    
+    <ul class="appointment-list">
+      <li *ngFor="let appointment of appointments">
+        <span class="badge">{{ appointment.id }}</span> 
+        {{ appointment.consultDateTime }}
+        
+        <div class="button-group">
+          <button type="button" class="update" title="Atualizar Agendamento" 
+                  (click)="update(appointment)">
+            Atualizar
+          </button>
+          <button type="button" class="delete" title="Deletar Agendamento" 
+                  (click)="delete(appointment)">
+            Deletar
+          </button>
+        </div>
+      </li>
+    </ul>
+    
+    <button class="add-button" (click)="add()">
+      Adicionar Agendamento
+    </button>
+  </div>
 </div>
-<ul class="heroes">
-  <li *ngFor="let appointment of appointments" class="tutor-item">
-    <span class="badge">{{ appointment.id }}</span> {{ appointment.consultDateTime }}
-
-    <span class="button-group">
-      <button type="button" class="update" title="Atualizar Agendamento"
-        (click)="update(appointment)">Atualizar
-      </button>
-
-      <button type="button" class="delete" title="Deletar Agendamento"
-        (click)="delete(appointment)">Deletar
-      </button>
-    </span>
-  </li>
-</ul>
-

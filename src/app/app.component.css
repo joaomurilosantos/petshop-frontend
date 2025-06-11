@@ -1,67 +1,50 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
+/* Wrapper geral */
 .wrapper {
   min-height: 100vh;
-  width: 100vw;
-  background-color: #f5f0c4; /* Yellow background covers entire screen */
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
+  align-items: start;
+  background-color: #f6f0c4;
 }
 
-/* Container for your content */
+/* Container principal */
 .app-container {
-  background-color: #f5f0c4;
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Cabeçalho */
-.header {
-  background-color: #f5f0c4;
-  color: #000;
   text-align: center;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
 }
 
+/* Logo com ícone */
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   background-color: #e07048;
   color: white;
   display: inline-block;
-  padding: 5px 20px;
-  border-radius: 20px;
+  padding: 10px 25px;
+  border-radius: 25px;
   margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Botões de troca */
+/* Botões de navegação */
 .switch-buttons {
-  text-align: center;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 .switch-buttons button {
-  background-color: #ccc;
+  background-color: #d9d9d9;
   color: black;
   border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
 }
 
 .switch-buttons button.active {
@@ -74,50 +57,56 @@ html, body {
   color: white;
 }
 
-/* Área de conteúdo */
+/* Conteúdo exibido abaixo do menu */
 .content {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
+/* Cartão estilizado para listagens */
 .card {
   background-color: #9aa17b;
   padding: 20px;
   border-radius: 20px;
-  width: 250px;
+  width: 280px;
+  margin: 0 auto;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
   color: white;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .card ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .card li {
+  font-size: 16px;
   font-weight: bold;
   color: white;
   margin-bottom: 5px;
 }
 
-/* Botão de adicionar */
-.add-button {
+/* Botão destacado (ex: adicionar tutor) */
+.card button,
+.btn-add {
   background-color: #e07048;
   color: white;
+  font-weight: bold;
+  padding: 10px 18px;
   border: none;
-  padding: 10px 16px;
   border-radius: 12px;
   cursor: pointer;
-  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s;
 }
 
-.add-button:hover {
-  background-color: #c95a35;
+.card button:hover,
+.btn-add:hover {
+  background-color: #a8583e;
 }

@@ -1,9 +1,11 @@
-<div class="app-container">
+<div class="tutor-container">
   <div class="card">
     <h3>Tutores</h3>
     <ul>
       <li *ngFor="let tutor of tutors">
         {{ tutor.name }}
+        <div class="button-group">
+        </div>
       </li>
     </ul>
     <button (click)="add()">Adicionar tutor</button>

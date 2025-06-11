@@ -1,8 +1,18 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/pets">Pets</a>
-  <a routerLink="/tutors">Tutores</a>
-  <a routerLink="/appointments">Agendamentos</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div class="wrapper">
+  <div class="app-container">
+    <div class="header">
+      <div class="logo">{{ title }}</div>
+    </div>
+
+    <nav class="switch-buttons">
+      <button routerLink="/pets" routerLinkActive="active">Pets</button>
+      <button routerLink="/tutors" routerLinkActive="active">Tutores</button>
+      <button routerLink="/appointments" routerLinkActive="active">Agendamentos</button>
+    </nav>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-messages></app-messages>
+  </div>
+</div>

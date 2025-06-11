@@ -4,6 +4,8 @@
     <ul>
       <li *ngFor="let pet of pets">
         {{ pet.name }}
+        <div class="button-group">
+        </div>
       </li>
     </ul>
     <button (click)="add()">Adicionar pet</button>
