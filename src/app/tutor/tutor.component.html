@@ -1,13 +1,24 @@
 <div class="tutor-container">
   <div class="card">
     <h3>Tutores</h3>
-    <ul>
+    <ul class="tutor-list">
       <li *ngFor="let tutor of tutors">
+        <span class="badge">{{ tutor.id }}</span>
         {{ tutor.name }}
         <div class="button-group">
+          <button type="button" class="update" title="Atualizar Tutor" 
+                  (click)="update(tutor)">
+            Atualizar
+          </button>
+          <button type="button" class="delete" title="Deletar Tutor" 
+                  (click)="delete(tutor)">
+            Deletar
+          </button>
         </div>
       </li>
     </ul>
-    <button (click)="add()">Adicionar tutor</button>
+    <button class="add-button" (click)="add()">
+      Adicionar Tutor
+    </button>
   </div>
 </div>
