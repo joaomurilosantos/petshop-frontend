@@ -30,7 +30,11 @@ export class AppointmentService {
   }
 
   addAppointment(data: AppointmentData): Observable<Appointment> {
-    return this.http.post<Appointment>(this.appointmentUrl, data);
+    const dto : AppointmentDto = {
+      petId : data.petId,
+      consulta : data.consulta.toISOString()
+    }
+    return this.http.post<Appointment>(this.appointmentUrl, dto);
   }
 
   updateAppointment(data: Appointment) {    
@@ -42,4 +46,9 @@ export class AppointmentService {
 
     return this.http.delete<void>(url, this.httpOptions) 
   }
+}
+
+export interface AppointmentDto {
+    petId: number,
+    consulta: string
 }
